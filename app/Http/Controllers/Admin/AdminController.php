@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+
+class AdminController extends Controller
+{
+    public function AdminHome()
+    {
+        return view('admin.home'); 
+    }
+
+    public function CatalogHome()
+    {
+        return view('admin.catalog'); 
+    }
+}
