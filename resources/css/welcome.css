@@ -1,0 +1,347 @@
+/* public/css/welcome.css */
+
+/* Общие стили */
+:root {
+    --primary-pink: #ffb6c1;
+    --secondary-pink: #ffc0cb;
+    --dark-pink: #ff69b4;
+    --cream: #fff5e6;
+    --chocolate: #8b4513;
+    --vanilla: #f3e5ab;
+    --mint: #98fb98;
+}
+
+body {
+    background: linear-gradient(135deg, #fff9f9 0%, #fff0f5 100%);
+    font-family: 'Nunito', 'Segoe UI', sans-serif;
+}
+
+.welcome-container {
+    min-height: calc(100vh - 76px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+}
+
+/* Секция героя */
+.hero-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 60px 60px 30px 30px;
+    box-shadow: 0 20px 40px rgba(255, 105, 180, 0.15);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid rgba(255, 182, 193, 0.3);
+}
+
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 218, 185, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+}
+
+.hero-section::after {
+    content: '🍰';
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    font-size: 150px;
+    opacity: 0.1;
+    transform: rotate(-15deg);
+    z-index: 0;
+}
+
+/* Кондитерские украшения */
+.cupcake-icon {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 3rem;
+    animation: bounce 3s ease-in-out infinite;
+}
+
+.candy-icon {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 2.5rem;
+    animation: spin 6s linear infinite;
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0) rotate(-5deg); }
+    50% { transform: translateY(-15px) rotate(5deg); }
+}
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Заголовок */
+.sweet-title {
+    font-size: 4rem;
+    font-weight: 800;
+    color: var(--chocolate);
+    text-shadow: 3px 3px 0 var(--primary-pink);
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+    animation: fadeInDown 1s ease-out;
+}
+
+.sweet-title span {
+    display: inline-block;
+    animation: wiggle 2s ease-in-out infinite;
+}
+
+@keyframes wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-5deg); }
+    75% { transform: rotate(5deg); }
+}
+
+/* Подзаголовок */
+.sweet-subtitle {
+    font-size: 1.8rem;
+    color: var(--dark-pink);
+    margin-bottom: 2rem;
+    font-weight: 400;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.sweet-subtitle::before,
+.sweet-subtitle::after {
+    content: '✦';
+    margin: 0 15px;
+    color: var(--primary-pink);
+    font-size: 1.5rem;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+@keyframes sparkle {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Описание */
+.sweet-description {
+    font-size: 1.3rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+/* Кнопка */
+.sweet-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.2rem 3rem;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: white;
+    background: linear-gradient(135deg, var(--dark-pink) 0%, #ff1493 100%);
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 10px 20px rgba(255, 20, 147, 0.3);
+    position: relative;
+    z-index: 1;
+    animation: fadeInUp 1s ease-out 0.9s both;
+    overflow: hidden;
+}
+
+.sweet-button i {
+    margin-left: 10px;
+    font-size: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.sweet-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px rgba(255, 20, 147, 0.4);
+    background: linear-gradient(135deg, #ff1493 0%, var(--dark-pink) 100%);
+    color: white;
+}
+
+.sweet-button:hover i {
+    transform: translateX(5px);
+}
+
+.sweet-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s ease;
+}
+
+.sweet-button:hover::before {
+    left: 100%;
+}
+
+/* Секция с преимуществами */
+.features-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 5rem;
+    padding: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(5px);
+    padding: 2rem;
+    border-radius: 30px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(255, 182, 193, 0.3);
+    animation: fadeInUp 1s ease-out;
+    animation-fill-mode: both;
+}
+
+.feature-card:nth-child(1) { animation-delay: 0.2s; }
+.feature-card:nth-child(2) { animation-delay: 0.4s; }
+.feature-card:nth-child(3) { animation-delay: 0.6s; }
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    background: white;
+    box-shadow: 0 20px 30px rgba(255, 105, 180, 0.15);
+    border-color: var(--primary-pink);
+}
+
+.feature-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: inline-block;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.feature-title {
+    font-size: 1.3rem;
+    color: var(--chocolate);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.feature-text {
+    color: #666;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+/* Украшения */
+.dessert-decoration {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.decoration-item {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.5;
+    animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .sweet-title {
+        font-size: 2.5rem;
+    }
+    
+    .sweet-subtitle {
+        font-size: 1.3rem;
+    }
+    
+    .sweet-subtitle::before,
+    .sweet-subtitle::after {
+        content: '';
+        margin: 0 5px;
+    }
+    
+    .sweet-description {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+    
+    .sweet-button {
+        padding: 1rem 2rem;
+        font-size: 1.1rem;
+    }
+    
+    .hero-section {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Анимации */
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Десертные эмодзи */
+.emoji-decoration {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.2;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.emoji-1 { top: 10%; left: 5%; animation: float 8s ease-in-out infinite; }
+.emoji-2 { top: 70%; right: 5%; animation: float 7s ease-in-out infinite reverse; }
+.emoji-3 { bottom: 10%; left: 10%; animation: float 9s ease-in-out infinite; }
+.emoji-4 { top: 30%; right: 15%; animation: float 6s ease-in-out infinite; }
